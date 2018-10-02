@@ -1,0 +1,8 @@
+Wymyśl dowolny, nowy typ obiektowy, który będzie przechowywał co najmniej dwa pola
+(w tym co najmniej jedno typu String i jedno typu prostego). W programie utwórz tablicę tego typu o
+dowolnym rozmiarze (najlepiej max 3 elementów, aby nie było za dużo pisania).
+
+Następnie uzupełnij tę tablicę obiektami utworzonymi na podstawie danych wprowadzanych
+przez użytkownika. Przy próbie dodania do tablicy obiektu, który już w niej istnieje program powinien
+ wyświetlić komunikat o duplikacie i ponowić próbę dodawania obiektu aż do skutku (aż podane dane będą
+ unikalne a tablica się wypełni).
