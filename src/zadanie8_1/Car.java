@@ -25,7 +25,7 @@ public class Car extends Vehicle {
         if (!ACstate)
             return 100 * getGasTankCap() / getMeanGasUsagePer100km();
         else
-            return 100 * getGasTankCap() / (getMeanGasUsagePer100km() + 0.81);
+            return 100 * getGasTankCap() / (getMeanGasUsagePer100km() + 0.8);
     }
 
     @Override
