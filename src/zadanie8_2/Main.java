@@ -1,6 +1,5 @@
 package zadanie8_2;
 
-import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -18,7 +17,6 @@ public class Main {
                 System.out.println("Object exist, once again:\n" + displayArray(tableContents));
                 tableContents[i] = createTableContent(scanner, i);
             }
-            System.out.println(Arrays.toString(tableContents));
         }
     }
 
@@ -58,6 +56,7 @@ public class Main {
                 }
             }
         } while (notOK);
+
         return new TableContent(str1, int1);
     }
 
