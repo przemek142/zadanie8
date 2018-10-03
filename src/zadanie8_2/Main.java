@@ -17,6 +17,8 @@ public class Main {
                 System.out.println("Object exist, once again:\n" + displayArray(arrayContents));
                 arrayContents[i] = createArrayContent(scanner, i);
             }
+            System.out.println(displayArray(arrayContents));
+
         }
     }
 
@@ -42,7 +44,7 @@ public class Main {
                 int1 = scanner.nextInt();
             } catch (InputMismatchException e) {
                 System.out.println("Not an int");
-                notOK = notOK || true;
+                notOK = true;
             }
             scanner.nextLine();
 
@@ -52,7 +54,7 @@ public class Main {
                     str1 = scanner.nextLine();
                 } catch (InputMismatchException e) {
                     System.out.println("Not a String");
-                    notOK = notOK || true;
+                    notOK = true;
                 }
             }
         } while (notOK);
