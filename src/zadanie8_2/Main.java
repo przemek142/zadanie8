@@ -5,31 +5,31 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        TableContent[] tableContents = new TableContent[3];
+        ArrayContent[] arrayContents = new ArrayContent[3];
         Scanner scanner = new Scanner(System.in);
 
-        tableContents[0] = createTableContent(scanner, 0);
-        System.out.println(displayArray(tableContents));
+        arrayContents[0] = createArrayContent(scanner, 0);
+        System.out.println(displayArray(arrayContents));
 
-        for (int i = 1; i < tableContents.length; i++) {
-            tableContents[i] = createTableContent(scanner, i);
-            while (isInside(tableContents, tableContents[i], i)) {
-                System.out.println("Object exist, once again:\n" + displayArray(tableContents));
-                tableContents[i] = createTableContent(scanner, i);
+        for (int i = 1; i < arrayContents.length; i++) {
+            arrayContents[i] = createArrayContent(scanner, i);
+            while (isInside(arrayContents, arrayContents[i], i)) {
+                System.out.println("Object exist, once again:\n" + displayArray(arrayContents));
+                arrayContents[i] = createArrayContent(scanner, i);
             }
         }
     }
 
-    static boolean isInside(TableContent[] tableContects, TableContent tableContect, int current) {
+    static boolean isInside(ArrayContent[] arrayContects, ArrayContent arrayContect, int current) {
         boolean ret = false;
         for (int i = 0; i < current; i++) {
-            if (tableContect.equals(tableContects[i]))
+            if (arrayContect.equals(arrayContects[i]))
                 ret = ret || true;
         }
         return ret;
     }
 
-    static TableContent createTableContent(Scanner scanner, int curent) {
+    static ArrayContent createArrayContent(Scanner scanner, int curent) {
         String str1="";
         int int1=0;
         boolean notOK;
@@ -57,18 +57,18 @@ public class Main {
             }
         } while (notOK);
 
-        return new TableContent(str1, int1);
+        return new ArrayContent(str1, int1);
     }
 
-    static String displayArray(TableContent[] tableContents) {
+    static String displayArray(ArrayContent[] arrayContents) {
         String str = "";
-        for (int i = 0; i < tableContents.length; i++) {
+        for (int i = 0; i < arrayContents.length; i++) {
             if (i == 0)
-                str = tableContents[i].toString();
-            else if (tableContents[i] == null) {
+                str = arrayContents[i].toString();
+            else if (arrayContents[i] == null) {
                 str += ", null";
             } else
-                str += ", " + tableContents[i].toString();
+                str += ", " + arrayContents[i].toString();
         }
         return str;
     }

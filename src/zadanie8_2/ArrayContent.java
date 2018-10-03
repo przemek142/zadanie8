@@ -2,11 +2,11 @@ package zadanie8_2;
 
 import java.util.Objects;
 
-public class TableContent {
+public class ArrayContent {
     private String aString;
     private int anInt;
 
-    public TableContent(String aString, int anInt) {
+    public ArrayContent(String aString, int anInt) {
         this.aString = aString;
         this.anInt = anInt;
     }
@@ -31,7 +31,7 @@ public class TableContent {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        TableContent that = (TableContent) o;
+        ArrayContent that = (ArrayContent) o;
         return anInt == that.anInt &&
                 Objects.equals(aString, that.aString);
     }
