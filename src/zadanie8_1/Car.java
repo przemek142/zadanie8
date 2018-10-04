@@ -3,6 +3,8 @@ package zadanie8_1;
 public class Car extends Vehicle {
     // dziedzicząca po Vehicle – posiada dodatkowo informację o tym, czy ma włączoną klimatyzację, czy nie
     private boolean ACstate; // 1- on, 0- off
+    private final double meanACGasUsagePer100km = 0.8;
+
 
     public boolean isACstate() {
         return ACstate;
@@ -25,12 +27,12 @@ public class Car extends Vehicle {
         if (!ACstate)
             return 100 * getGasTankCap() / getMeanGasUsagePer100km();
         else
-            return 100 * getGasTankCap() / (getMeanGasUsagePer100km() + 0.8);
+            return 100 * getGasTankCap() / (getMeanGasUsagePer100km() + meanACGasUsagePer100km);
     }
 
     @Override
     public String toString() {
         return "Name: " + getName() + ", pojemność baku: " + getGasTankCap() + ", śr. zuż. pal: " +
-                getMeanGasUsagePer100km() + ", AC: " + isACstate() + ", zasięg: " + range();
+                getMeanGasUsagePer100km() + ", AC: " + isACstate() + ", spal AC: " + meanACGasUsagePer100km + ", zasięg: " + range();
     }
 }

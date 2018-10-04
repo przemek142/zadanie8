@@ -3,6 +3,7 @@ package zadanie8_1;
 public class Truck extends Car {
     // Truck dziedzicząca po Car – posiada dodatkowo informację o wadze ładunku
     private double cargoWeight; //kg
+    private final double meanACGasUsagePer100km=1.6;
 
     public Truck(String name, double gasTankCap, double meanGasUsagePer100km, boolean ACState, double cargoWeight) {
         super(name, gasTankCap, meanGasUsagePer100km, ACState);
@@ -23,13 +24,13 @@ public class Truck extends Car {
         if (!isACstate())
             return 100 * getGasTankCap() / getMeanGasUsagePer100km();
         else
-            return 100 * getGasTankCap() / (getMeanGasUsagePer100km() + 1.6 + (0.5 * cargoWeight / 100));
+            return 100 * getGasTankCap() / (getMeanGasUsagePer100km() + meanACGasUsagePer100km + (0.5 * cargoWeight / 100));
     }
 
     @Override
     public String toString() {
         return "Name: " + getName() + ", pojemność baku: " + getGasTankCap() + ", śr. zuż. pal: " +
-                getMeanGasUsagePer100km() + ",ładunek: " + cargoWeight + ", AC: " + isACstate() + ", zasięg: " + range();
+                getMeanGasUsagePer100km() + ",ładunek: " + cargoWeight + ", AC: " + isACstate() + ", spal AC: " + meanACGasUsagePer100km + ", zasięg: " + range();
     }
 
     public void setCargoWeight(double cargoWeight) {

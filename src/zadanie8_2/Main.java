@@ -6,19 +6,18 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         ArrayContent[] arrayContents = new ArrayContent[3];
+        ArrayContent temp;
         Scanner scanner = new Scanner(System.in);
 
-        arrayContents[0] = createArrayContent(scanner, 0);
-        System.out.println(displayArray(arrayContents));
-
-        for (int i = 1; i < arrayContents.length; i++) {
-            arrayContents[i] = createArrayContent(scanner, i);
-            while (isInside(arrayContents, arrayContents[i], i)) {
-                System.out.println("Object exist, once again:\n" + displayArray(arrayContents));
-                arrayContents[i] = createArrayContent(scanner, i);
-            }
+        for (int i = 0; i < arrayContents.length; i++) {
+            do {
+                temp = createArrayContent(scanner, i);
+                if (isInside(arrayContents, temp, i)) {
+                    System.out.println("Object exist, once again:");
+                } else
+                    arrayContents[i] = temp;
+            } while (isInside(arrayContents, temp, i));
             System.out.println(displayArray(arrayContents));
-
         }
     }
 
@@ -26,14 +25,14 @@ public class Main {
         boolean ret = false;
         for (int i = 0; i < current; i++) {
             if (arrayContect.equals(arrayContects[i]))
-                ret = ret || true;
+                ret = true;
         }
         return ret;
     }
 
     static ArrayContent createArrayContent(Scanner scanner, int curent) {
-        String str1="";
-        int int1=0;
+        String str1 = "";
+        int int1 = 0;
         boolean notOK;
 
         do {
